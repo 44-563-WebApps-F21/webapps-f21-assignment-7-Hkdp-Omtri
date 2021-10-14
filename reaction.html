@@ -33,7 +33,7 @@
       }, 3000)
     }
   </script>
-  <div class="container-fluid align-center" align = "middle">
+  <div class="container-fluid align-center" align="middle">
     <h2 style="color: greenyellow; text-align:center"> Homakesavadurgaprasad </h2>
     <p id="target" style="text-align:center"> Your Time </p>
     <p id="countdown" style="text-align:center">Count</p>
@@ -42,5 +42,31 @@
   </div>
 
 </body>
+<script>
+  Time = undefined;
+  function recordReact() {
+    Time = Date.now();
+    console.log(Time);
+  }
+  function startTime() {
+    for (let z = 0; z < 4; z++) {
+      j = (3 - z) * 1000;
+      setTimeout(() => {
+        document.getElementById("countdown").innerHTML = z;
+      }, j)
+    }
+    setTimeout(() => {
+      if (Time == undefined) {
+        document.getElementById("target").innerHTML = "Too Slow";
+      }
+      else {
+        buttonTime = Date.now();
+        diff = buttonTime - Time
+        document.getElementById("target").innerHTML = "Time was " + diff + " milliseconds"
+        Time = undefined
+      }
+    }, 3000)
+  }
+</script>
 
 </html>
