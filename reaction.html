@@ -30,7 +30,8 @@
     console.log(Time);
   }
   function startTime() {
-    for (let z = 0; z < 4; z++) {
+    var countd = Math.floor(Math.random() * (10 - 2) + 2)
+    for (let z = 0; z < 10; z++) {
       j = (3 - z) * 1000;
       setTimeout(() => {
         document.getElementById("countdown").innerHTML = z;
@@ -47,6 +48,17 @@
         Time = undefined
       }
     }, 3000)
+  }
+
+  function checkMyTime() {
+    var element = document.getElementById("target")
+    if (myTime == undefined)
+      element.innerHTML = "Too Slow"
+    else {
+      var buttonTime = Date.now()
+      var timeDiff = buttonTime - myTime
+      element.innerHTML = "Time was " + timeDiff
+    }
   }
 </script>
 
