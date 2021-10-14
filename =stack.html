@@ -1,49 +1,74 @@
 <!DOCTYPE html>
-<html> <head> <style>
-    .flex-container {
-      display: flex;  flex-direction:row;
-      background-color: red;
-  }
+<html>
 
-.flex-container > div {  /*div children of the flex container*/
-  background-color: #f1f1f1; 
-  margin: 10px;  padding: 20px;  font-size: 30px;
-}
+<head>
+    <title>stack</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: yellow;
+        }
 
-/* Responsive layout */
-@media (max-width: 600px) { 
-	 .flex-container{
-		 flex-direction:column;
-		 background-color: green;
-	  }
-	}
-</style></head>
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #cf1818;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
 
-
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: rgb(144, 110, 189);
+            }
+        }
+    </style>
+</head>
 
 <body>
-		<div class="flex-container" id="target">
-		  <div>row item 1</div>   
-		  <div>row item 2</div>  
-		  <div>row item 3</div>  
-		</div>
-	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
-		<button onclick="makeNewDiv()">Add one</button>
-	
-	
+    <h2> Homakesavadurgaprasad </h2> //name 
+    <p> Enter Input: </p>
+    <input id="texted" type="text"></input>
+    <div class="flex-container" id="target">
+        <div class="stack">row item 1</div>
+        <div class="stack">row item 2</div>
+        <div class="stack">row item 3</div>
+    </div>
+    <button onclick="makeNewDiv()">Push value</button>
+    <button onclick="popItem()">Pop</button>
+    <button onclick="zap()">Zap Values</button>
 </body>
 <script>
-	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("p")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
-
-		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-		
-	}
+    function makeNewDiv() {
+        let element = document.createElement("div")
+        let input = document.getElementById("texted")
+        element.innerHTML = input.value
+        element.className = "stack"
+        document.getElementById('target').appendChild(element)
+    }
+    function popItem() {
+        var s = document.getElementsByClassName("stack")
+        var length = s.length
+        if (length > 0)
+            s[length - 1].remove()
+    }
+    function zap() {
+        var s = document.getElementsByClassName("stack")
+        let input = document.getElementById("texted").value
+        if (s != undefined && s.length > 0) {
+            for (let i = 0; i < s.length; i++) {
+                if (s[i].innerHTML == input) {
+                    var itemToBeRemoved = s[i].innerHTML
+                    s[i].remove()
+                    console.log(itemToBeRemoved)
+                    i--;
+                }
+            }
+        }
+    }
 </script>
-</html>	
+
+</html>
