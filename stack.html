@@ -56,13 +56,13 @@
             s[length - 1].remove()
     }
     function zap() {
-        var s = document.getElementsByClassName("stack")
+        var z = document.getElementsByClassName("stack")
         let input = document.getElementById("texted").value
-        if (s != undefined && s.length > 0) {
-            for (let i = 0; i < s.length; i++) {
-                if (s[i].innerHTML == input) {
-                    var itemToBeRemoved = s[i].innerHTML
-                    s[i].remove()
+        if (z != undefined && s.length > 0) {
+            for (let i = 0; i < z.length; i++) {
+                if (z[i].innerHTML == input) {
+                    var itemToBeRemoved = z[i].innerHTML
+                    z[i].remove()
                     console.log(itemToBeRemoved)
                     i--;
                 }
